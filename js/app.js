@@ -26,6 +26,9 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+
+};
 
 Player.prototype.render();
 
@@ -40,9 +43,7 @@ Player.prototype.handleInput();
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
 // Place the player object in a variable called player
-let Player = function() {
 
-};
 
 
 // This listens for key presses and sends the keys to your
