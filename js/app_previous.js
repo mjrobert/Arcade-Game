@@ -1,11 +1,13 @@
-// Enemies our player must avoid
-var Enemy = function() {
+// CONSTRUCTOR FUNCTION for enemies our player must avoid
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -24,10 +26,22 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+
+};
+
+Player.prototype.render();
+
+Player.prototype.update();
+
+Player.prototype.handleInput();
+
+
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+let allEnemies = [];
 // Place the player object in a variable called player
 
 
