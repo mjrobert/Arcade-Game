@@ -1,4 +1,5 @@
-// Enemies our player must avoid
+// CONSTRUCTOR FUNCTIONS
+// // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Location variables applied to each instance
     this.x = x;
@@ -9,6 +10,16 @@ var Enemy = function(x, y, speed) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
+
+// // Player
+var Player = function (x , y, speed) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.sprite = 'images/char-pink-girl.png'    
+}
+
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -29,7 +40,10 @@ Enemy.prototype.render = function() {
 
 
 // Now instantiate your objects.
+
 // Place all enemy objects in an array called allEnemies
+var allEnemies = [];
+
 // Place the player object in a variable called player
 
 
