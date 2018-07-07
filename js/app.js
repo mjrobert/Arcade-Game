@@ -35,7 +35,7 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(allowedKeys) {
     switch (allowedKeys) {
         case "left":
-            //Check for canvas boundaries.
+            //Check for canvas boundaries
             if (this.x > 0) {
                 this.x -= 101;
             }
@@ -70,7 +70,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + this.speed * dt;
 
-    // Used a circle collision, see https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection and https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection
+    // Used a circle collision technique, see https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection and https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection
    var playerCircle = {radius: 35, x: player.x, y: player.y};
    var enemyCircle = {radius: 35, x: this.x, y: this.y};
    
@@ -83,6 +83,7 @@ Enemy.prototype.update = function(dt) {
     player.y = 400;
    }
 
+   // Reset enemies when moving off screen
    if (this.x > 505) {
        this.x = -100;
        this.speed = Math.floor(Math.random() * 200 +100);
