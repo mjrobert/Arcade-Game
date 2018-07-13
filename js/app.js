@@ -2,7 +2,7 @@
 CONSTRUCTOR FUNCTIONS
 */
 
-var Enemy = function(x, y) {
+var Enemy = function (x, y) {
     // Location variables applied to each instance
     this.x = x;
     this.y = y;
@@ -15,7 +15,7 @@ var Enemy = function(x, y) {
 var Player = function (x, y) {
     this.x = x;
     this.y = y;
-    this.sprite = 'images/char-boy.png';    
+    this.sprite = 'images/char-princess-girl.png';
 }
 
 
@@ -24,15 +24,15 @@ var Player = function (x, y) {
 ADD PROTOTYPE METHODS
 */
 
-Player.prototype.update = function() {
+Player.prototype.update = function () {
     //Not used but added because engine.js requires it
 }
 
-Player.prototype.render = function() {
+Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(allowedKeys) {
+Player.prototype.handleInput = function (allowedKeys) {
     switch (allowedKeys) {
         case "left":
             //Check for canvas boundaries
@@ -64,36 +64,37 @@ Player.prototype.handleInput = function(allowedKeys) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed * dt;
 
     // Used a circle collision technique, see https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection and https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection
-   var playerCircle = {radius: 35, x: player.x, y: player.y};
-   var enemyCircle = {radius: 35, x: this.x, y: this.y};
-   
-   var dx = playerCircle.x - enemyCircle.x;
-   var dy = playerCircle.y - enemyCircle.y;
-   var distance = Math.sqrt(dx * dx + dy * dy);
-   
-   if (distance < playerCircle.radius + enemyCircle.radius) {
-    player.x = 202;
-    player.y = 400;
-   }
+    var playerCircle = { radius: 35, x: player.x, y: player.y };
+    var enemyCircle = { radius: 35, x: this.x, y: this.y };
 
-   // Reset enemies when moving off screen
-   if (this.x > 505) {
-       this.x = -100;
-       this.speed = Math.floor(Math.random() * 200 +100);
-   }
+    var dx = playerCircle.x - enemyCircle.x;
+    var dy = playerCircle.y - enemyCircle.y;
+    var distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < playerCircle.radius + enemyCircle.radius) {
+        player.x = 202;
+        player.y = 400;
+    }
+
+    // Reset enemies when moving off screen
+    if (this.x > 505) {
+        this.x = -100;
+        this.speed = Math.floor(Math.random() * 200 + 100);
+    }
 };
 
 // Draw the enemy on the screen
-Enemy.prototype.render = function() {
+Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 
 /*
@@ -110,7 +111,8 @@ for (var i = 0; i < 3; i++) {
 
 
 // Place the player object in a variable called player
-let player = new Player(202,400);
+let player = new Player(202, 400);
+
 
 
 /*
@@ -119,7 +121,7 @@ EVENT LISTENER
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
